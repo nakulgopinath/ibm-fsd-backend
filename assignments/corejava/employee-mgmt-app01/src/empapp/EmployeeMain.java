@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.Employee;
 import service.EmployeeService;
 
-import java.util.*;
+import java.util.Scanner;
 
 
 public class EmployeeMain {
