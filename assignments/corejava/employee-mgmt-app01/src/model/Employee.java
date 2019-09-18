@@ -1,6 +1,8 @@
+package model;
+public class Employee {
 
 
-public class EmployeePojo {
+
 
 	private int id;
 	private String name;

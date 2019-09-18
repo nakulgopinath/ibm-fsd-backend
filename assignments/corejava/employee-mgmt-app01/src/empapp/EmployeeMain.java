@@ -1,5 +1,9 @@
+package empapp;
 
 import java.util.Scanner;
+
+import service.EmployeeService;
+
 import java.util.*;
 
 
@@ -10,7 +14,7 @@ public class EmployeeMain {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		EmployeeInterfaceImpl eimpl = new EmployeeInterfaceImpl();
+		EmployeeService eimpl = new EmployeeService();
 		
 		
 		
@@ -23,7 +27,10 @@ public class EmployeeMain {
 			System.out.println("3.Update Employee");
 			System.out.println("4.Delete Employee");
 			System.out.println("5.View All Employee");
-			System.out.println("6.Exit");
+			System.out.println("6.Import");
+			System.out.println("7.Export");
+
+			System.out.println("8.Exit");
 			System.out.println("Enter a choice");
 			ch=sc.nextInt();
 			
@@ -55,8 +62,16 @@ public class EmployeeMain {
 			eimpl.viewAllEmployee();
 			break;
 			
-			case 6:
+			case 8:
 			System.out.println("Program Terminated");
+			break;
+			
+			case 6:
+			eimpl.importEmpl();
+			break;
+			
+			case 7:
+			eimpl.exportEmpl();
 			break;
 			
 
@@ -65,7 +80,7 @@ public class EmployeeMain {
 			
 			
 			
-		}while(ch!=6);
+		}while(ch!=8);
 		
 
 	}
