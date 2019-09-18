@@ -84,8 +84,9 @@ public class EmployeeService implements IEmployee {
 			
 				System.out.println("Employee ID: "+e.getId());
 				System.out.println("Employee Name:"+e.getName());
-				System.out.println("EMployee Designation:"+e.getDesignation());
+				System.out.println("Employee Designation:"+e.getDesignation());
 				System.out.println("Employee Country:"+e.getCountry());
+				System.out.println();
 			
 		}
 	}
@@ -96,7 +97,7 @@ public class EmployeeService implements IEmployee {
 	public void importEmpl() 
 	{
 		
-		
+		System.out.println("Hi");
          
 		try {
             sc = new Scanner(new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\NakulGNair\\Desktop\\FSD\\Trainer-4\\ibm-fsd-backend\\assignments\\corejava\\employee-mgmt-app01\\src\\Employee.txt"))));
@@ -152,10 +153,11 @@ public class EmployeeService implements IEmployee {
 //			System.out.println("Hi");
 			String line = "";
 			line=String.format("%s,%s,%s,%s", e.getId(),e.getName(),e.getDesignation(),e.getCountry());
-			System.out.println(line);
+			
 			fos.write(line.getBytes());
 			fos.write("\n".getBytes());
 			}
+		fos.close();
 		}
 		
 		
