@@ -2,6 +2,7 @@ package empapp;
 
 import java.util.Scanner;
 
+import model.Employee;
 import service.EmployeeService;
 
 import java.util.*;
@@ -38,7 +39,21 @@ public class EmployeeMain {
 			{
 			
 			case 1:
-			eimpl.addEmployee();
+				Employee epojo=new Employee();
+				
+				System.out.println("Enter Employee Id:");
+				epojo.setId(sc.nextInt());
+				
+				System.out.println("Enter Employee Name:");
+				epojo.setName(sc.next());
+				
+				System.out.println("Enter Employee Designation:");
+				epojo.setDesignation(sc.next());
+				
+				System.out.println("Enter Employee Country:");
+				epojo.setCountry(sc.next());	
+				
+			eimpl.addEmployee(epojo);
 			break;
 			
 			case 2:

@@ -1,5 +1,5 @@
 package service;
-
+import threads.Thread1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
@@ -32,23 +32,7 @@ public class EmployeeService implements IEmployee {
 	
 	
 	@Override
-	public void addEmployee() {
-		Employee epojo=new Employee();
-		
-		System.out.println("Enter Employee Id:");
-		epojo.setId(sc.nextInt());
-		
-		System.out.println("Enter Employee Name:");
-		epojo.setName(sc.next());
-		
-		System.out.println("Enter Employee Designation:");
-		epojo.setDesignation(sc.next());
-		
-		System.out.println("Enter Employee Country:");
-		epojo.setCountry(sc.next());
-		
-		
-		
+	public void addEmployee(Employee epojo) {
 		eMap.put(epojo.getId(),epojo);
 	}
 	
@@ -65,6 +49,8 @@ public class EmployeeService implements IEmployee {
 			System.out.println("Employee Country:"+e.getCountry());
 			
 	}
+		else
+			System.out.println("Employee Doesnt Exist");
 	}
 	@Override
 	public void updateEmployee(int id){
@@ -86,12 +72,17 @@ public class EmployeeService implements IEmployee {
 			e.setCountry(sc.next());
 			
 	}
+		else
+			System.out.println("Employee Doesnt Exist");
 		
 	}
 	
 	@Override
 	public void deleteEmployee(int id){
-	eMap.remove(id);	
+	if(eMap.containsKey(id))
+		eMap.remove(id);
+	else
+		System.out.println("Employee Doesnt Exist");
 	}	
 			
 	
@@ -117,6 +108,9 @@ public class EmployeeService implements IEmployee {
 	
 	public void importEmpl() 
 	{
+		
+		
+         
 		try {
             sc = new Scanner(new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\NakulGNair\\Desktop\\FSD\\Trainer-4\\ibm-fsd-backend\\assignments\\corejava\\employee-mgmt-app01\\src\\Employee.txt"))));
 			
@@ -153,6 +147,11 @@ public class EmployeeService implements IEmployee {
 	
 	public void exportEmpl()
 	{
+//		Thread1 writer = new Thread1("writer");
+//		writer.start();
+		
+		
+
 		try {
 			
 			File fout = new File("C:\\Users\\NakulGNair\\Desktop\\FSD\\Trainer-4\\ibm-fsd-backend\\assignments\\corejava\\employee-mgmt-app01\\src\\EmployeeExport.txt");
@@ -172,6 +171,7 @@ public class EmployeeService implements IEmployee {
 			}
 		}
 		
+		
 		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,6 +180,9 @@ public class EmployeeService implements IEmployee {
 			e1.printStackTrace();
 		}
 		
+		
 	}
-
+	
 }
+
+
