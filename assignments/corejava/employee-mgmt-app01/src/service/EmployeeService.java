@@ -16,7 +16,6 @@ public class EmployeeService implements IEmployee {
 	
 	Scanner sc = new Scanner(System.in);
 	HashMap<Integer,Employee> eMap=new HashMap<Integer,Employee>();
-//	EmployeePojo epojo=new EmployeePojo();
 	
 	
 	@Override
