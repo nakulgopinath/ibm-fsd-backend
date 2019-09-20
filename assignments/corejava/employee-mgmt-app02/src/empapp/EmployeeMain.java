@@ -61,7 +61,7 @@ public class EmployeeMain  {
 				
 					
 					try {
-//						read(epojo);
+						eimpl.read(epojo);
 						eimpl.addEmployee(epojo);
 					}
 					catch(InputMismatchException iME)

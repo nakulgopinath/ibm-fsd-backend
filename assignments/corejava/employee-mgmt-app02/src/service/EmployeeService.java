@@ -99,6 +99,8 @@ public class EmployeeService implements IEmployee {
 //				System.out.println();
 //			
 //		}
+//		for(Employee e:eArr)
+//			print(e);
 		return eArr;
 	}
 	

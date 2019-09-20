@@ -33,7 +33,7 @@ public class DaoService implements IDao {
 	
 
 	public DaoService() {
-		System.out.println("hi 1");
+	
 		
 		connection();
 		// TODO Auto-generated constructor stub
@@ -47,7 +47,7 @@ public class DaoService implements IDao {
 
 	public void connection()
 	{
-		System.out.println("hi 2");
+		
 		
 		
 		if(flag==0)
@@ -279,7 +279,7 @@ public class DaoService implements IDao {
 	
 	public ArrayList<Employee> viewAllEmployeeFromDatabase()
 	{ 
-		Employee e = new Employee();
+		
 		
 		ArrayList<Employee> eArr = new ArrayList<Employee>();
 		try {
@@ -293,11 +293,8 @@ public class DaoService implements IDao {
 			System.out.format("\t%s  \t%s \t%s \t%s \n", "Id", "Name", "Designation", "Country");
 			
 			while (rs.next()) {
-				// Retrieve by column name
-//				int id1 = rs.getInt("id");
-//				String name = rs.getString("name");
-//				String designation = rs.getString("designation");
-//				String country = rs.getString("country");
+				Employee e = new Employee();
+				
 				
 				e.setId(rs.getInt("id"));
 				e.setName(rs.getString("name"));
