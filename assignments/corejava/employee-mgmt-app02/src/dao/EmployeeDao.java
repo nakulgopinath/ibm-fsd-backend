@@ -1,29 +1,20 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.sql.RowSet;
-import javax.sql.rowset.JdbcRowSet;
-
-import com.sun.rowset.CachedRowSetImpl;
 import com.sun.rowset.JdbcRowSetImpl;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
-import empapp.EmployeeMain;
-//import empapp.EmployeeMain.ReadWrite;
 import model.Employee;
-import service.EmployeeService;
 
-public class DaoService implements IDao {
+
+public class EmployeeDao implements IDao {
 	
 	static int flag;
 	public Connection conn = null;
@@ -32,7 +23,7 @@ public class DaoService implements IDao {
 	public ResultSet rs = null;
 	
 
-	public DaoService() {
+	public EmployeeDao() {
 	
 		
 		connection();
@@ -82,20 +73,7 @@ public class DaoService implements IDao {
 		
  System.out.print("Inside try");
 		
-		// Cached RowSet
-//		rs = new CachedRowSetImpl();
-//		rs.setUrl(DB_URL);
-//		rs.setUsername("training");
-//		rs.setPassword("training");
-		
-//		String sql = "SELECT * FROM employeenew";
-//		rs.setCommand(sql);
-//		rs.execute();
-		
-		
-
-		// Header
-				
+	
 		
 		String insertQueryForPrepareStmt = "INSERT INTO employeenew (id, name, designation, country) VALUES (?, ?, ?, ?)";
 		pstmt = conn.prepareStatement(insertQueryForPrepareStmt);
@@ -118,38 +96,7 @@ public class DaoService implements IDao {
 		}
 		
 		
-//		catch (SQLException se) {
-//			// Handle errors for JDBC
-//			se.printStackTrace();
-//			try {
-//				conn.rollback();
-//			} catch (SQLException e) {}
-//		} catch (Exception e) {
-//			// Handle errors for Class.forName
-//			e.printStackTrace();
-//			try {
-//				conn.rollback();
-//			} catch (SQLException sqle) {}			
-//		} finally {
-//			// finally block used to close resources
-//			try {
-//				if (rs != null) {
-//					rs.close();
-//				}
-//			} catch (SQLException se2) {
-//			}
-//			try {
-//				if (stmt != null)
-//					stmt.close();
-//			} catch (SQLException se2) {
-//			} // nothing we can do
-//			try {
-//				if (conn != null)
-//					conn.close();
-//			} catch (SQLException se) {
-//				se.printStackTrace();
-//			} // end finally try
-//		} // end try
+
 		System.out.println("Goodbye!");
 }
 
@@ -159,8 +106,8 @@ public class DaoService implements IDao {
 		System.out.println("Hi");
 		
 		Employee e = new Employee();
-		EmployeeService eSer = new EmployeeService();
-//		EmployeeMain.ReadWrite rw = eMain.new ReadWrite();
+		
+
 		
 		try {
 		String sql = "SELECT * FROM employeenew WHERE id=?";
@@ -203,7 +150,7 @@ public class DaoService implements IDao {
 	
 	public void updateEmployeeFromDatabase(int id)
 	{
-		Employee e = new Employee();
+		
 		try
 		{
 			Scanner sc=new Scanner(System.in);
@@ -226,34 +173,7 @@ public class DaoService implements IDao {
 			
 			
 			
-//			rs = pstmt.executeQuery();
-//			int updateCount=0;
-//			while(rs.next())
-//			{
-//				
-//			updateCount++;
-//			e.setId(rs.getInt("id"));
-//			e.setName(rs.getString("name"));
-//			e.setDesignation( rs.getString("designation"));
-//			e.setCountry(rs.getString("country"));
-//			
-//			}
-//			
-			
-			
-//			rs = pstmt.executeQuery();
-//			System.out.format("\t%s  \t%s \t%s \t%s \n", "Id", "Name", "Designation", "Country");
-//			
-//			while (rs.next()) {
-//				// Retrieve by column name
-//				int id1 = rs.getInt("id");
-//				String name = rs.getString("name");
-//				String designation = rs.getString("designation");
-//				String country = rs.getString("country");
-//
-//				// Display values
-//				System.out.format("\t%d  \t%s  \t%s \t%s\n", id1, name, designation,  country);
-//			}
+
 
 		}
 		catch (SQLException se2){
@@ -268,7 +188,6 @@ public class DaoService implements IDao {
 			String sql = "DELETE FROM employeenew WHERE id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,id);
-//			System.out.println(pstmt);
 			int deleteCount = pstmt.executeUpdate();
 			System.out.println(deleteCount+" Record Deleted");
 		}
@@ -290,7 +209,7 @@ public class DaoService implements IDao {
 			
 			
 			rs = pstmt.executeQuery();
-			System.out.format("\t%s  \t%s \t%s \t%s \n", "Id", "Name", "Designation", "Country");
+			
 			
 			while (rs.next()) {
 				Employee e = new Employee();
@@ -305,8 +224,7 @@ public class DaoService implements IDao {
 				
 				
 
-				// Display values
-//				System.out.format("\t%d  \t%s  \t%s \t\t%s\n", id1, name, designation,  country);
+
 
 		}
 		}
