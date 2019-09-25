@@ -50,7 +50,7 @@ public class AddEmployeeController extends HttpServlet implements Servlet {
 		EmployeeService eSer = new EmployeeService();
 		
 		
-		int id =10;
+		int id = Integer.parseInt(request.getParameter("empid"));
 		String name = request.getParameter("empname");
 		String designation = request.getParameter("empdesig");
 		String country = request.getParameter("empcountry");
@@ -60,7 +60,7 @@ public class AddEmployeeController extends HttpServlet implements Servlet {
 		System.out.println(designation);
 		System.out.println(country);
 		
-//		e.setId(id);
+		e.setId(id);
 		e.setName(name);
 		e.setDesignation(designation);
 		e.setCountry(country);

@@ -48,7 +48,7 @@ public class ViewEmployeeByIdController extends HttpServlet {
 		
 		e=eSer.viewEmployee(id);
 		request.setAttribute("employee",e);
-		RequestDispatcher rd = request.getRequestDispatcher("ViewEmployeeById.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("viewEmployeeById.jsp");
 		rd.forward(request, response);
 	}
 

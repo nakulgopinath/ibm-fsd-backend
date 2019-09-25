@@ -25,14 +25,14 @@ public class ListEmpolyeeController extends HttpServlet {
      */
     public ListEmpolyeeController() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -40,7 +40,7 @@ public class ListEmpolyeeController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		
 		EmployeeService eSer=new EmployeeService();
@@ -51,7 +51,7 @@ public class ListEmpolyeeController extends HttpServlet {
 		
 		request.setAttribute("empList", employees);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("ViewAllEmployees.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/viewAllEmployees.jsp");
 		rd.forward(request, response);
 	}
 

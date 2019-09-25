@@ -1,9 +1,11 @@
-<%@page import="model.Employee"%>
+<%@page import="com.examples.empapp.model.Employee"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -11,8 +13,9 @@
 
 
 <%Employee emp =(Employee) request.getAttribute("employee");%>
+<%if(emp.getId()!=0){ %>
 	<h3>List Employees</h3>
-	<table>
+	<table class="table table-hover">
 		<thead> 
 			<tr>
 				<td>ID</td>
@@ -35,6 +38,12 @@
 		</tbody>
 		</tbody>
 	</table>
+	<%} %>
+	
+	<% if(emp.getId()==0) { %>
+	<h3>Employee Doesn't Exist</h3>
+	<%} %>
+	
 	<br>
 	
 	<a href="index.jsp">Go Back</a>

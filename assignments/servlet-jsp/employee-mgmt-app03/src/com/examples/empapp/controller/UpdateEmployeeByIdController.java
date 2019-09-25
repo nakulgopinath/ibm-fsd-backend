@@ -47,6 +47,9 @@ public class UpdateEmployeeByIdController extends HttpServlet {
 		EmployeeService eSer = new EmployeeService();
 		
 		int id = Integer.parseInt(request.getParameter("empid"));
+		
+		Employee e2=eSer.viewEmployee(id);
+		
 		String name = request.getParameter("empname");
 		String designation = request.getParameter("empdesig");
 		String country = request.getParameter("empcountry");
@@ -63,9 +66,10 @@ public class UpdateEmployeeByIdController extends HttpServlet {
 		
 		eSer.updateEmployee(e);
 		
+		request.setAttribute("employee1",e2);
+		request.setAttribute("employee2",e);
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("listEmployees.do");
+		RequestDispatcher rd = request.getRequestDispatcher("updatedEmployee.jsp");
 		rd.forward(request, response);
 	}
 
