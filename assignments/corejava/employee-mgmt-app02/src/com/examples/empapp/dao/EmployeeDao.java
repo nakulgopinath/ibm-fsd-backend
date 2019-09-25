@@ -1,5 +1,9 @@
-package dao;
+package com.examples.empapp.dao;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 
 import java.sql.DriverManager;
@@ -10,8 +14,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.examples.empapp.model.Employee;
 import com.sun.rowset.JdbcRowSetImpl;
-import model.Employee;
 
 
 public class EmployeeDao implements IDao {
@@ -238,11 +243,13 @@ public class EmployeeDao implements IDao {
 	public void importToDatabase(Employee epojo)
 	{
 		
-			importToDatabase(epojo);
+		
+		
+     addToDatabase(epojo);       
 			
 		
-		
-	}
+	} 
+
 	
 	public String exportToDatabase()
 	{ 

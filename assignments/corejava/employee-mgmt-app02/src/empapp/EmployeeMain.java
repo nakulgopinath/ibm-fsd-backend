@@ -3,15 +3,14 @@ package empapp;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import model.Employee;
-import service.EmployeeService;
-
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
+import com.examples.empapp.model.Employee;
+import com.examples.empapp.service.EmployeeService;
 
 public class EmployeeMain  {
 	

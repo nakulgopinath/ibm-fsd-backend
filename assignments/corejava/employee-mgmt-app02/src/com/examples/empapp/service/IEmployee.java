@@ -1,8 +1,8 @@
-package service;
+package com.examples.empapp.service;
 
 import java.util.ArrayList;
 
-import model.Employee;
+import com.examples.empapp.model.Employee;
 
 public interface IEmployee {
 

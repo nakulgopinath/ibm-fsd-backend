@@ -1,4 +1,4 @@
-package service;
+package com.examples.empapp.service;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import dao.EmployeeDao;
-import model.Employee;
+import com.examples.empapp.dao.EmployeeDao;
+import com.examples.empapp.model.Employee;
 
 public class EmployeeService implements IEmployee {
 
@@ -22,7 +22,7 @@ public class EmployeeService implements IEmployee {
 	
 	@Override
 	public void addEmployee(Employee epojo) {
-		eMap.put(epojo.getId(),epojo);
+//		eMap.put(epojo.getId(),epojo);
 		dao.addToDatabase(epojo);
 	}
 	

@@ -1,6 +1,6 @@
-package dao;
+package com.examples.empapp.dao;
 
-import model.Employee;
+import com.examples.empapp.model.Employee;
 
 public interface IDao {
 	
